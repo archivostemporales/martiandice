@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Martian Dice - Star Wars Console</title>
+    <title>Martian Dice</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap');
 
@@ -187,7 +187,7 @@
         <div class="controls">
             <button id="roll-btn" onclick="rollDice()">LANZAR DADOS</button>
             <button id="stop-btn" onclick="finishTurn()">PLANTARSE</button>
-            <button id="next-player-btn" onclick="playSound('sfx-clic'); prepareNextTurn()" style="display:none; border-color: #00ff00; color: #00ff00;">PRÓXIMO PILOTO ➔</button>
+            <button id="next-player-btn" onclick="playSound('sfx-clic'); prepareNextTurn()" style="display:none; border-color: #00ff00; color: #00ff00;">SIGUIENTE PILOTO ➔</button>
         </div>
 
         <div class="label">>> SECTOR DE ABDUCCIÓN</div>
@@ -304,7 +304,7 @@
         } else {
             const h = counts['human'] || 0, c = counts['cow'] || 0, k = counts['chicken'] || 0;
             score = h + c + k + (h > 0 && c > 0 && k > 0 ? 3 : 0);
-            document.getElementById('message').innerHTML = `<span style="color:#00ff00">ÉXITO: +${score} CRÉDITOS OBTENIDOS</span>`;
+            document.getElementById('message').innerHTML = `<span style="color:#00ff00">ÉXITO: +${score} PUNTOS OBTENIDOS</span>`;
         }
         document.getElementById('next-player-btn').style.display = 'inline-block';
         render();
@@ -337,7 +337,7 @@
         document.getElementById('stop-btn').disabled = turnEnded;
     }
 
-    function resetTotalGame() { if(confirm("¿RESETAR DATABANK?")) location.reload(); }
+    function resetTotalGame() { if(confirm("¿RESETEAR DATOS?")) location.reload(); }
     
     window.onload = () => {
         initPlayers();
