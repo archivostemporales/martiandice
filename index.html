@@ -14,6 +14,8 @@
             --glass-bg: rgba(20, 20, 25, 0.95);
         }
 
+
+
         body, html {
             margin: 0; padding: 0; 
             width: 100%; min-height: 100vh;
@@ -24,7 +26,7 @@
             background-size: 400px 400px, 600px 600px;
             color: white;
             font-family: 'Orbitron', sans-serif;
-            overflow-x: hidden;
+            overflow-x: auto;
             overflow-y: auto;
         }
 
@@ -173,6 +175,13 @@
     <div id="sidebar">
         <h2>DATABANK_SCORES</h2>
         <div id="players-list"></div>
+
+
+<button onclick="playSound('sfx-clic'); window.open('images/martian_dice_reglas.pdf', '_blank')" 
+        style="margin-top: auto; margin-bottom: 15px; border-color: var(--rebel-blue); color: var(--rebel-blue);">
+    REGLAS
+</button>
+
         <button onclick="playSound('sfx-clic'); resetTotalGame()" style="margin-top: auto; font-size: 0.7em; border-color: var(--death-star-red); color: var(--death-star-red);">REBOOT SYSTEM</button>
     </div>
 
