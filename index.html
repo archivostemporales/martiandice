@@ -89,21 +89,34 @@
             letter-spacing: 5px;
         }
 
-        .dice-container { 
-            min-height: 160px; 
-            border: 2px solid rgba(255,255,255,0.1); 
-            width: 95%; 
-            max-width: 1100px;
-            margin: 20px 0; 
-            padding: 25px; 
-            display: flex; 
-            flex-wrap: wrap; 
-            gap: 15px; 
-            justify-content: center; 
-            background: rgba(255,255,255,0.03); 
-            border-radius: 15px;
-            box-shadow: inset 0 0 30px rgba(0,0,0,0.5);
-        }
+/* Estilo base que ya tienes (puedes dejarlo como está) */
+.dice-container { 
+    min-height: 160px; 
+    border: 2px solid rgba(255,255,255,0.1); 
+    width: 95%; 
+    max-width: 1100px;
+    margin: 20px 0; 
+    padding: 25px; 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 15px; 
+    justify-content: center; 
+    background: rgba(255,255,255,0.03); /* Fondo de respaldo */
+    border-radius: 15px;
+    box-shadow: inset 0 0 30px rgba(0,0,0,0.5);
+    /* Añadimos estas dos para que las imágenes se vean bien */
+    background-size: cover;
+    background-position: center;
+}
+
+/* --- AÑADE ESTO --- */
+#active-dice {
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/earth.jpg');
+}
+
+#reserved-dice {
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/cargo.jpg');
+}
         
         .die { 
             width: 85px; height: 85px; cursor: pointer; border-radius: 8px; 
@@ -186,10 +199,10 @@
     </div>
 
     <div id="game-area">
-        <div id="audio-controls" onclick="toggleMusic()">🔊</div>
+<!--        <div id="audio-controls" onclick="toggleMusic()">🔊</div>  -->
         
         <h1 id="title-header">MARTIAN DICE</h1>
-        <p style="color: var(--rebel-blue); margin-top: -10px; letter-spacing: 8px;">GALACTIC EDITION</p>
+        <p style="color: var(--rebel-blue); margin-top: -10px; letter-spacing: 8px;">QUINTERO EDITION</p>
         
         <div id="message">SISTEMAS ONLINE.</div>
 
@@ -309,7 +322,7 @@
         let score = 0;
 
         if (rays < tanks) {
-            document.getElementById('message').innerHTML = `<span style="color:var(--death-star-red)">MISIÓN FALLIDA: DEFENSA IMPERIAL SUPERIOR</span>`;
+            document.getElementById('message').innerHTML = `<span style="color:var(--death-star-red)">MISIÓN FALLIDA: HAY MÁS TANQUES QUE RAYOS</span>`;
         } else {
             const h = counts['human'] || 0, c = counts['cow'] || 0, k = counts['chicken'] || 0;
             score = h + c + k + (h > 0 && c > 0 && k > 0 ? 3 : 0);
